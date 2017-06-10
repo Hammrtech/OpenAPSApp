@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:OpenAPSApp" x:Class="OpenAPSApp.OpenAPSAppPage">
+	<Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+
+      <Label x:Name="lblStatus" Text="This will be the OpenAPS Status." Grid.Row="0" Grid.Column="0" />
+
+      <Label x:Name="somethingelse" Text="Not sure what will go here yet." Grid.Row="1" Grid.Column="0" />
+        
+    </Grid>
+</ContentPage>
