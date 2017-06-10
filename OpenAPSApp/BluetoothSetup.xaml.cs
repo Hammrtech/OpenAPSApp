@@ -31,6 +31,10 @@ namespace OpenAPSApp
                     CrossBleAdapter.Current.SetAdapterState(true);
                 }
             }
+            else if(Device.RuntimePlatform == "iOS")
+            {
+				CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status => { });
+            }
             _foundDevices = new ObservableCollection<IScanResult>();
             lsvAvailableDevices.ItemsSource = _foundDevices;
             _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);

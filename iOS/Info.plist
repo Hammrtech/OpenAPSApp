@@ -42,8 +42,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-	
-
-	
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>We will connect to your OpenAPS rig via Bluetooth.</string>
 </dict>
 </plist>
