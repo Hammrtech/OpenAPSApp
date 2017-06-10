@@ -1,4 +1,4 @@
-﻿﻿using Plugin.BluetoothLE;
+﻿using Plugin.BluetoothLE;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,22 +22,22 @@ namespace OpenAPSApp
             InitializeComponent();
         }
 
-        private void btnTestBluetooth_Clicked(object sender, System.EventArgs e)
+        private void btnScanBluetooth_Clicked(object sender, System.EventArgs e)
         {
-            if (Device.RuntimePlatform == "Android")
+            CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status => 
             {
-                if (!(CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn))
+                if (Device.RuntimePlatform == "Android")
                 {
-                    CrossBleAdapter.Current.SetAdapterState(true);
+                    if (!(CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn))
+                    {
+                        CrossBleAdapter.Current.SetAdapterState(true);
+                    }
                 }
-            }
-            else if(Device.RuntimePlatform == "iOS")
-            {
-				CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status => { });
-            }
-            _foundDevices = new ObservableCollection<IScanResult>();
-            lsvAvailableDevices.ItemsSource = _foundDevices;
-            _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
+
+                _foundDevices = new ObservableCollection<IScanResult>();
+                lsvAvailableDevices.ItemsSource = _foundDevices;
+                _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
+            });
         }
 
         private void btnStopBluetoothScan_Clicked(object sender, EventArgs e)

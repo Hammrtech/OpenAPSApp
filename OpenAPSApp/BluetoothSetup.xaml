@@ -12,7 +12,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnStartBluetoothScan" Clicked="btnTestBluetooth_Clicked" Text="Scan Bluetooth" Grid.Row="0" Grid.Column="0"></Button>
+        <Button x:Name="btnStartBluetoothScan" Clicked="btnScanBluetooth_Clicked" Text="Scan Bluetooth" Grid.Row="0" Grid.Column="0"></Button>
         <Button x:Name="btnStopBluetoothScan" Clicked="btnStopBluetoothScan_Clicked" Text="Stop Scan Bluetooth" Grid.Row="1" Grid.Column="0"></Button>
         <ListView x:Name="lsvAvailableDevices" Grid.Row="2" ItemSelected="lsvAvailableDevices_ItemSelected" Grid.Column="0">
             <ListView.ItemTemplate>
