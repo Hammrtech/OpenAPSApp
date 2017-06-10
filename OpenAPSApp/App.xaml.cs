@@ -8,7 +8,7 @@ namespace OpenAPSApp
         {
             InitializeComponent();
 
-            MainPage = new OpenAPSAppPage();
+            MainPage = new BluetoothSetup();
         }
 
         protected override void OnStart()
