@@ -22,15 +22,22 @@ namespace OpenAPSApp
             InitializeComponent();
         }
 
-        private void btnTestBluetooth_Clicked(object sender, System.EventArgs e)
+        private void btnScanBluetooth_Clicked(object sender, System.EventArgs e)
         {
-            if(!(CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn))
+            CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status => 
             {
-                CrossBleAdapter.Current.SetAdapterState(true);
-            }
-            _foundDevices = new ObservableCollection<IScanResult>();
-            lsvAvailableDevices.ItemsSource = _foundDevices;
-            _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
+                if (Device.RuntimePlatform == "Android")
+                {
+                    if (!(CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn))
+                    {
+                        CrossBleAdapter.Current.SetAdapterState(true);
+                    }
+                }
+
+                _foundDevices = new ObservableCollection<IScanResult>();
+                lsvAvailableDevices.ItemsSource = _foundDevices;
+                _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
+            });
         }
 
         private void btnStopBluetoothScan_Clicked(object sender, EventArgs e)
