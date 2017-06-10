@@ -15,27 +15,22 @@ namespace OpenAPSApp
     public partial class BluetoothSetup : ContentPage
     {
         private IDisposable _scanner;
+        private ObservableCollection<IScanResult> _foundDevices;
 
         public BluetoothSetup()
         {
             InitializeComponent();
         }
 
-        private async Task btnTestBluetooth_Clicked(object sender, System.EventArgs e)
+        private void btnTestBluetooth_Clicked(object sender, System.EventArgs e)
         {
             if(!(CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn))
             {
                 CrossBleAdapter.Current.SetAdapterState(true);
             }
-            var devices = new ObservableCollection<IScanResult>();
-            lsvAvailableDevices.ItemsSource = devices;
-            _scanner = CrossBleAdapter.Current.Scan().Subscribe(scanResult =>
-            {
-                if (!(devices.Any(device => device.Device.Name == scanResult.Device.Name)))
-                {
-                    devices.Add(scanResult);
-                }
-            });
+            _foundDevices = new ObservableCollection<IScanResult>();
+            lsvAvailableDevices.ItemsSource = _foundDevices;
+            _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
         }
 
         private void btnStopBluetoothScan_Clicked(object sender, EventArgs e)
@@ -49,6 +44,17 @@ namespace OpenAPSApp
             if (sync)
             {
                 
+            }
+        }
+
+        private void AddDeviceNameToFoundList(IScanResult scanResult)
+        {
+            if (!string.IsNullOrEmpty(scanResult.Device.Name))
+            {
+                if (!(_foundDevices.Any(device => device.Device.Name == scanResult.Device.Name)))
+                {
+                    _foundDevices.Add(scanResult);
+                }
             }
         }
     }
