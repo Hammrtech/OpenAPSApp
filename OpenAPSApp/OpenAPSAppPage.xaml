@@ -7,21 +7,14 @@
     
 	<Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
 
         <Label x:Name="lblCurrentBG" Text="{Binding CurrentBGDisplay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
         <Label x:Name="lblMinutesSinceLastBG" Text="{Binding MinutesSinceLastBGDisplay}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
@@ -39,7 +32,7 @@
         <Button x:Name="btnSmallMeal" Text="Small Meal (15g)" Grid.Row="8" Grid.Column="0" Clicked="btnSmallMeal_Clicked"/>
         <Button x:Name="btnMediumMeal" Text="Medium (30g)" Grid.Row="8" Grid.Column="1" Clicked="btnMediumMeal_Clicked"/>
         <Button x:Name="btnLargeMeal" Text="Large Meal (60g)" Grid.Row="8" Grid.Column="2" Clicked="btnLargeMeal_Clicked"/>
-        
 
+        <Button x:Name="btnSetupBluetooth" Text="Setup Bluetooth" Grid.Row="9" Grid.Column="0" Clicked="btnSetupBluetooth_Clicked"/>
     </Grid>
 </ContentPage>

@@ -8,7 +8,7 @@ namespace OpenAPSApp
         {
             InitializeComponent();
 
-            MainPage = new OpenAPSAppPage();
+            MainPage = new NavigationPage(new OpenAPSAppPage());
         }
 
         protected override void OnStart()
