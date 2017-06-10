@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:OpenAPSApp" x:Class="OpenAPSApp.OpenAPSAppPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
+            
+    
 	<Grid>
         <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-      </Grid.ColumnDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-      <Label x:Name="lblStatus" Text="This will be the OpenAPS Status." Grid.Row="0" Grid.Column="0" />
+        <Label x:Name="lblCurrentBG" Text="{Binding CurrentBGDisplay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Label x:Name="lblMinutesSinceLastBG" Text="{Binding MinutesSinceLastBGDisplay}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Label x:Name="lblCurrentIOB" Text="{Binding CurrentIOBCOBDisplay}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Label x:Name="lblEventualBG" Text="{Binding EventualBGDisplay}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Label x:Name="lblLoopStatus" Text="{Binding LoopStatus}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Label x:Name="lblCurrentTempBasal" Text="{Binding CurrentTempBasalDisplay}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Label x:Name="lblOpenAPSReason" Text="{Binding OpenAPSReasonDisplay}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" />
 
-      <Label x:Name="somethingelse" Text="Not sure what will go here yet." Grid.Row="1" Grid.Column="0" />
+
+        <Button x:Name="btnEatingSoon" Text="Eating Soon" Grid.Row="7" Grid.Column="0" Clicked="btnEatingSoon_Clicked"/>
+        <Button x:Name="btnActivityMode" Text="Activity Mode" Grid.Row="7" Grid.Column="1" Clicked="btnActivityMode_Clicked"/>
+        <Button x:Name="btnCancelTempTarget" Text="Cancel Target" Grid.Row="7" Grid.Column="2" Clicked="btnCancelTempTarget_Clicked"/>
+
+        <Button x:Name="btnSmallMeal" Text="Small Meal (15g)" Grid.Row="8" Grid.Column="0" Clicked="btnSmallMeal_Clicked"/>
+        <Button x:Name="btnMediumMeal" Text="Medium (30g)" Grid.Row="8" Grid.Column="1" Clicked="btnMediumMeal_Clicked"/>
+        <Button x:Name="btnLargeMeal" Text="Large Meal (60g)" Grid.Row="8" Grid.Column="2" Clicked="btnLargeMeal_Clicked"/>
         
+
     </Grid>
 </ContentPage>
