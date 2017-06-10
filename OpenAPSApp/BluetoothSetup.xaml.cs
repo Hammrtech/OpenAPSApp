@@ -40,10 +40,18 @@ namespace OpenAPSApp
 
         private async Task lsvAvailableDevices_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var sync = await DisplayAlert("Pair Device", "Do you want to pair this device?", "Pair", "Cancel");
+            var sync = await DisplayAlert("Pair Device", "Do you want to pair with this device?", "Pair", "Cancel");
             if (sync)
             {
-                
+                var selectedDevice = (IScanResult)e.SelectedItem;
+                var pin = RandomString(5);
+                selectedDevice.Device.PairingRequest(pin).Subscribe(pairingAccepted =>
+                {
+                    if (pairingAccepted)
+                    {
+                        selectedDevice.Device.Connect();
+                    }
+                });
             }
         }
 
@@ -56,6 +64,15 @@ namespace OpenAPSApp
                     _foundDevices.Add(scanResult);
                 }
             }
+        }
+
+        private static Random random = new Random();
+
+        private static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
