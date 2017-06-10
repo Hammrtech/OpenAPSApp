@@ -42,5 +42,21 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	
+	<!--for connecting to devices (client)-->
+	<array>
+	    <string>bluetooth-central</string>
+	</array>
+
+	<!--for server configurations-->
+	<array>
+	    <string>bluetooth-peripheral</string>
+	</array>
+
+	
+	<!--To add a description to the Bluetooth request message (on iOS 10 this is required!)-->
+
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>We will connect to your OpenAPS rig via Bluetooth.</string>
 </dict>
 </plist>
