@@ -42,7 +42,11 @@ namespace OpenAPSApp
 
         private void btnStopBluetoothScan_Clicked(object sender, EventArgs e)
         {
-            _scanner.Dispose();
+            if (_scanner != null) {
+                _scanner.Dispose();
+            } else {
+                DisplayAlert("Not scanning", "Nothing to stop: No scanner running.", "Ok");
+            }
         }
 
         private async Task lsvAvailableDevices_ItemSelected(object sender, SelectedItemChangedEventArgs e)
