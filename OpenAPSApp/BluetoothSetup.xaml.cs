@@ -1,4 +1,4 @@
-﻿using Plugin.BluetoothLE;
+﻿﻿using Plugin.BluetoothLE;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,9 +24,9 @@ namespace OpenAPSApp
 
         private void btnScanBluetooth_Clicked(object sender, System.EventArgs e)
         {
-            CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status => 
+            CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status =>
             {
-                if (Device.RuntimePlatform == "Android")
+                if (Device.RuntimePlatform == Device.Android)
                 {
                     if (!(CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn))
                     {
@@ -34,9 +34,12 @@ namespace OpenAPSApp
                     }
                 }
 
-                _foundDevices = new ObservableCollection<IScanResult>();
-                lsvAvailableDevices.ItemsSource = _foundDevices;
-                _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
+                if (CrossBleAdapter.Current.Status == AdapterStatus.PoweredOn)
+                {
+                    _foundDevices = new ObservableCollection<IScanResult>();
+                    lsvAvailableDevices.ItemsSource = _foundDevices;
+                    _scanner = CrossBleAdapter.Current.Scan().Subscribe(AddDeviceNameToFoundList);
+                }
             });
         }
 
