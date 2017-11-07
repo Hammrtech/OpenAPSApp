@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>OpenAPSApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.openaps.app.openapsapp</string>
+	<string>com.nightscout.openapsapp</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
