@@ -6,10 +6,15 @@ namespace OpenAPSApp
 {
     public partial class OpenAPSAppPage : ContentPage
     {
+        Status currentStatus = new Status();
+
         public OpenAPSAppPage()
         {
             InitializeComponent();
-            Status currentStatus = new Status();
+
+            ToolbarItems.Add(new ToolbarItem("Setup", "", async () =>
+                               await Navigation.PushAsync(new BluetoothSetup())
+                             ,0,0));
 
             currentStatus.CurrentBG = 100;
             currentStatus.CurrentDelta = "+2";
@@ -56,9 +61,6 @@ namespace OpenAPSApp
 
         }
 
-        private void btnSetupBluetooth_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new BluetoothSetup());
-        }
+
     }
 }

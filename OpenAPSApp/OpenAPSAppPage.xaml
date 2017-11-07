@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:OpenAPSApp" x:Class="OpenAPSApp.OpenAPSAppPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:OpenAPSApp" x:Class="OpenAPSApp.OpenAPSAppPage"
+    Title="OpenAPSAPP">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
             
     
-	<Grid>
+	<Grid Margin="20,20,20,20" HorizontalOptions="CenterAndExpand" >
         <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
@@ -25,14 +34,14 @@
         <Label x:Name="lblOpenAPSReason" Text="{Binding OpenAPSReasonDisplay}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" />
 
 
-        <Button x:Name="btnEatingSoon" Text="Eating Soon" Grid.Row="7" Grid.Column="0" Clicked="btnEatingSoon_Clicked"/>
-        <Button x:Name="btnActivityMode" Text="Activity Mode" Grid.Row="7" Grid.Column="1" Clicked="btnActivityMode_Clicked"/>
-        <Button x:Name="btnCancelTempTarget" Text="Cancel Target" Grid.Row="7" Grid.Column="2" Clicked="btnCancelTempTarget_Clicked"/>
+        <Button x:Name="btnEatingSoon" Text="Eating Soon" BackgroundColor="Blue" TextColor="White" Grid.Row="7" Grid.Column="0" Margin="0,0,0,20" Clicked="btnEatingSoon_Clicked"/>
+        <Button x:Name="btnActivityMode" Text="Activity Mode" BackgroundColor="Green" TextColor="White" Grid.Row="7" Grid.Column="1" Margin="10,0,0,20"  Clicked="btnActivityMode_Clicked"/>
+        <Button x:Name="btnCancelTempTarget" Text="Cancel Target" BackgroundColor="Red" TextColor="White" Grid.Row="7" Grid.Column="2" Margin="10,0,0,20"  Clicked="btnCancelTempTarget_Clicked"/>
 
-        <Button x:Name="btnSmallMeal" Text="Small Meal (15g)" Grid.Row="8" Grid.Column="0" Clicked="btnSmallMeal_Clicked"/>
-        <Button x:Name="btnMediumMeal" Text="Medium (30g)" Grid.Row="8" Grid.Column="1" Clicked="btnMediumMeal_Clicked"/>
-        <Button x:Name="btnLargeMeal" Text="Large Meal (60g)" Grid.Row="8" Grid.Column="2" Clicked="btnLargeMeal_Clicked"/>
+        <Button x:Name="btnSmallMeal" Text="~15g Meal" BackgroundColor="Navy" TextColor="White" Grid.Row="8" Grid.Column="0" Margin="0,0,0,20" Clicked="btnSmallMeal_Clicked"/>
+        <Button x:Name="btnMediumMeal" Text="~30g Meal" BackgroundColor="Maroon" TextColor="White" Grid.Row="8" Grid.Column="1" Margin="10,0,0,20" Clicked="btnMediumMeal_Clicked"/>
+        <Button x:Name="btnLargeMeal" Text="~60g Meal" BackgroundColor="Olive" TextColor="White" Grid.Row="8" Grid.Column="2" Margin="10,0,0,20" Clicked="btnLargeMeal_Clicked"/>
 
-        <Button x:Name="btnSetupBluetooth" Text="Setup Bluetooth" Grid.Row="9" Grid.Column="0" Clicked="btnSetupBluetooth_Clicked"/>
+        <!--<Button x:Name="btnSetupBluetooth" Text="Setup Bluetooth" Grid.Row="9" Grid.Column="0" Clicked="btnSetupBluetooth_Clicked"/>-->
     </Grid>
 </ContentPage>
