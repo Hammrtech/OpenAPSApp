@@ -144,6 +144,22 @@
     <Reference Include="Microsoft.Azure.Mobile.Distribute.iOS.Bindings">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Distribute.0.17.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Distribute.iOS.Bindings.dll</HintPath>
     </Reference>
+    <Reference Include="SkiaSharp">
+      <HintPath>..\packages\SkiaSharp.1.59.1\lib\XamariniOS\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.iOS">
+      <HintPath>..\packages\SkiaSharp.Views.1.59.1\lib\XamariniOS\SkiaSharp.Views.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Forms">
+      <HintPath>..\packages\SkiaSharp.Views.Forms.1.59.1\lib\XamariniOS\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microcharts.Forms">
+      <HintPath>..\packages\Microcharts.Forms.0.6.2\lib\portable-net45+win8+wpa81+wp8\Microcharts.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenAPSApp\OpenAPSApp.csproj">
@@ -194,6 +210,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\activity.png" />
+    <BundleResource Include="Resources\settings.png" />
+    <BundleResource Include="Resources\eating_soon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets')" />

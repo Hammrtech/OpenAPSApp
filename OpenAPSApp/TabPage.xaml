@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:OpenAPSApp;assembly=OpenAPSApp" x:Class="OpenAPSApp.TabPage">
+
+    <local:OpenAPSAppPage Title="Home" /> 
+    
+    <!--<NavigationPage Title="Carb Entry" BarBackgroundColor="#D2E8A7" BackgroundColor="#D2E8A7" Icon="Jackpots/Icon-App-29x29.png">
+        <x:Arguments>
+            <local:Jackpots Title="Virginia Lottery" />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Eating Soon" BarBackgroundColor="#D2E8A7" BackgroundColor="#D2E8A7" Icon="GameRoom/Icon-App-29x29.png">
+        <x:Arguments>
+            <local:Gameroom Title="Virginia Lottery" />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Activity Mode" BarBackgroundColor="#D2E8A7" BackgroundColor="#D2E8A7" Icon="Scan.png">
+        <x:Arguments>
+            <local:Scan Title="Virginia Lottery" />
+        </x:Arguments>
+    </NavigationPage>-->
+
+    <NavigationPage Title="Settings" BarBackgroundColor="#D2E8A7" BackgroundColor="#D2E8A7" Icon="Settings/Icon-App-29x29.png">
+        <x:Arguments>
+            <local:BluetoothSetup Title="Settings" />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

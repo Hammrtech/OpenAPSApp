@@ -67,6 +67,8 @@ namespace OpenAPSApp
                     }
                 });
             }
+
+            ((ListView)sender).SelectedItem = null; // de-select the row
         }
 
         private void AddDeviceNameToFoundList(IScanResult scanResult)
