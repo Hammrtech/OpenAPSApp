@@ -6,13 +6,13 @@
     "Microsoft.Azure.Mobile.Crashes": "0.17.1",
     "Microsoft.Azure.Mobile.Distribute": "0.17.1",
     "Newtonsoft.Json": "10.0.3",
-    "Plugin.BluetoothLE": "3.1.1",
     "Rx-Core": "2.2.5",
     "Rx-Interfaces": "2.2.5",
     "Rx-Linq": "2.2.5",
     "Rx-Main": "2.2.5",
     "Rx-PlatformServices": "2.2.5",
-    "Xamarin.Forms": "2.4.0.38779"
+    "Xam.Plugins.Settings": "3.1.1",
+    "Xamarin.Forms": "2.5.0.121934"
   },
   "frameworks": {
     ".NETPortable,Version=v4.5,Profile=Profile111": {}

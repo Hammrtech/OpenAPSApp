@@ -55,6 +55,7 @@
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Models\IOB.cs" />
     <Compile Include="Models\SMBSuggested.cs" />
+    <Compile Include="Helpers\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />

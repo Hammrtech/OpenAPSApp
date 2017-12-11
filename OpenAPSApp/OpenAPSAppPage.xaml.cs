@@ -24,6 +24,7 @@ namespace OpenAPSApp
         public OpenAPSAppPage()
         {
             InitializeComponent();
+            Settings.Hostname = "http://172.20.10.5";
 
             //ToolbarItems.Add(new ToolbarItem("Settings", "", async () =>
                              //  await Navigation.PushAsync(new BluetoothSetup())
@@ -49,22 +50,29 @@ namespace OpenAPSApp
         {
             base.OnAppearing();
 
-            gluList = JsonConvert.DeserializeObject<List<Glucose>>(await Utility.GetJsonFromURL("http://172.20.10.5/monitor/glucose.json"));
-            lblCurrentBG.Text = "Current BG:  " + gluList.FirstOrDefault().BloodGlucose.ToString();
+            try
+            {
+                gluList = JsonConvert.DeserializeObject<List<Glucose>>(await Utility.GetJsonFromURL($"{Settings.Hostname}/monitor/glucose.json"));
+                lblCurrentBG.Text = "Current BG:  " + gluList.FirstOrDefault().BloodGlucose.ToString();
 
-            chartViewBG.Chart = new PointChart() { Entries = Utility.ConvertGlucoseListToEntry(gluList) };
-            //chartViewBG.Chart.LabelTextSize = 0;
-            tmpBasal = JsonConvert.DeserializeObject<TempBasal>(await Utility.GetJsonFromURL("http://172.20.10.5/monitor/temp_basal.json"));
-            lblCurrentTempBasal.Text = $"Current temp basal: {tmpBasal.Rate} u/hr for {tmpBasal.Duration} min";
-
-
-
-            iobList = JsonConvert.DeserializeObject<List<IOB>>(await Utility.GetJsonFromURL("http://172.20.10.5/monitor/iob.json"));
-            lblCurrentIOB.Text = "Current IOB:  " + iobList.FirstOrDefault().Iob.ToString();
+                chartViewBG.Chart = new PointChart() { Entries = Utility.ConvertGlucoseListToEntry(gluList) };
+                //chartViewBG.Chart.LabelTextSize = 0;
+                tmpBasal = JsonConvert.DeserializeObject<TempBasal>(await Utility.GetJsonFromURL($"{Settings.Hostname}/monitor/temp_basal.json"));
+                lblCurrentTempBasal.Text = $"Current temp basal: {tmpBasal.Rate} u/hr for {tmpBasal.Duration} min";
 
 
-            smbSuggest = JsonConvert.DeserializeObject<SMBSuggested>(await Utility.GetJsonFromURL("http://172.20.10.5/enact/smb-suggested.json"));
-            lblOpenAPSReason.Text = $"{smbSuggest.Reason.Substring(0,7)} g";
+
+                iobList = JsonConvert.DeserializeObject<List<IOB>>(await Utility.GetJsonFromURL($"{Settings.Hostname}/monitor/iob.json"));
+                lblCurrentIOB.Text = "Current IOB:  " + iobList.FirstOrDefault().Iob.ToString();
+
+
+                smbSuggest = JsonConvert.DeserializeObject<SMBSuggested>(await Utility.GetJsonFromURL($"{Settings.Hostname}/enact/smb-suggested.json"));
+                lblOpenAPSReason.Text = $"{smbSuggest.Reason.Substring(0, 7)} g";
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Whoops!","We cannot connect to your OpenAPS rig at this time.","Rats");
+            }
         }
 
         void btnEatingSoon_Clicked(object sender, System.EventArgs e)
